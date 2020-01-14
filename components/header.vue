@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
         <nuxt-link to="/" class="navbar-brand">
-          <img src="~static/images/logo.png" style="width: 80%" alt />
+          <img src="~static/images/logoas.jpg" style="width: 40%" alt />
         </nuxt-link>
         <button
           class="navbar-toggler"
@@ -25,22 +25,16 @@
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="/about" class="nav-link" id="about"
-                >About</nuxt-link
-              >
+              <nuxt-link to="/about" class="nav-link" id="about">About</nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="/themes" class="nav-link" id="categories"
-                >Categories</nuxt-link
-              >
+              <nuxt-link to="/themes" class="nav-link" id="categories">Categories</nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/blog" class="nav-link" id="blog">Blog</nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="/contact" id="contact" class="nav-link"
-                >Contact</nuxt-link
-              >
+              <nuxt-link to="/contact" id="contact" class="nav-link">Contact</nuxt-link>
             </li>
           </ul>
         </div>
@@ -50,7 +44,7 @@
 </template>
 
 <script>
-  export default {};
+export default {};
 </script>
 
 <style>
@@ -60,8 +54,9 @@
 
 .navbar {
   width: 100% !important;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
+  box-shadow: 0px 9px 10px 0px #00000033;
 }
 
 .navbar-dark .navbar-nav .nav-link {

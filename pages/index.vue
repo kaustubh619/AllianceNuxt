@@ -25,9 +25,7 @@
       <span>Let Your Soul & Spirit Fly</span>
       <span>Discover The World</span>
       <div>
-        <p class="text-1" style="color: white!important">
-          Where are you going?
-        </p>
+        <p class="text-1" style="color: white!important">Where are you going?</p>
       </div>
       <div class="transparent">
         <div class="transparent__div">
@@ -45,9 +43,7 @@
               <button
                 @click="searchPackages"
                 class="transparent__div--button--yellow form__fill--blank"
-              >
-                Explore
-              </button>
+              >Explore</button>
             </div>
           </div>
         </div>
@@ -59,19 +55,13 @@
         <div class="container">
           <div class="row p-4">
             <div class="text col-12">
-              <h1 class="text--main">
-                The Best Vacation Experience - Explore By Theme
-              </h1>
+              <h1 class="text--main">The Best Vacation Experience - Explore By Theme</h1>
               <h6 class="text--sub">
                 Find exciting places to visit based on your favorite destination
                 theme
               </h6>
             </div>
-            <div
-              class="col-12 col-sm-4 col-lg-3 p-3 theme-box"
-              v-for="(i, j) in themes"
-              :key="j"
-            >
+            <div class="col-12 col-sm-4 col-lg-3 p-3 theme-box" v-for="(i, j) in themes" :key="j">
               <nuxt-link
                 :to="{
                   name: 'category-id',
@@ -86,9 +76,7 @@
             </div>
             <div class="col-12">
               <nuxt-link to="/themes">
-                <button class="theme-button">
-                  View All Destination Themes
-                </button>
+                <button class="theme-button">View All Destination Themes</button>
               </nuxt-link>
             </div>
           </div>
@@ -97,9 +85,7 @@
     </section>
 
     <section id="destination" v-for="(x, y) in categories" :key="y">
-      <div
-        :class="y % 2 === 0 ? 'destination__box' : 'tour__package--background'"
-      >
+      <div :class="y % 2 === 0 ? 'destination__box' : 'tour__package--background'">
         <div class="text">
           <h1 class="text--main">{{ x.name }}</h1>
           <h6 class="text--sub">{{ x.info }}</h6>
@@ -118,14 +104,10 @@
                 </div>
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
-                    <p class="card-text" style="color: black; font-weight: 600">
-                      {{ i.name }}
-                    </p>
+                    <p class="card-text" style="color: black; font-weight: 600">{{ i.name }}</p>
                     <div class="card-text duration">
                       Duration
-                      <p style="color: #f7a818">
-                        {{ i.duration }}D/{{ i.duration - 1 }}N
-                      </p>
+                      <p style="color: #f7a818">{{ i.duration }}D/{{ i.duration - 1 }}N</p>
                     </div>
                   </div>
                   <div class="d-flex justify-content-between">
@@ -170,43 +152,43 @@
 </template>
 
 <script>
-  import Logo from "~/components/Logo.vue";
+import Logo from "~/components/Logo.vue";
 
-  export default {
-    components: {},
+export default {
+  components: {},
 
-    data() {
-      return {
-        categories: [],
-        themes: [],
-        destination: ""
-      };
+  data() {
+    return {
+      categories: [],
+      themes: [],
+      destination: ""
+    };
+  },
+
+  mounted() {
+    $("#home").addClass("active");
+    this.getCategoriesWithPackages();
+    this.getMainCategories();
+  },
+
+  methods: {
+    getCategoriesWithPackages: function() {
+      this.$store.dispatch("getCategoriesWithPackages").then(res => {
+        this.categories = res.data;
+      });
     },
 
-    mounted() {
-      $("#home").addClass("active");
-      this.getCategoriesWithPackages();
-      this.getMainCategories();
+    getMainCategories: function() {
+      this.$store.dispatch("getMainCategories").then(res => {
+        this.themes = res.data.reverse().splice(0, 4);
+      });
     },
 
-    methods: {
-      getCategoriesWithPackages: function() {
-        this.$store.dispatch("getCategoriesWithPackages").then(res => {
-          this.categories = res.data;
-        });
-      },
-
-      getMainCategories: function() {
-        this.$store.dispatch("getMainCategories").then(res => {
-          this.themes = res.data.reverse().splice(0, 4);
-        });
-      },
-
-      searchPackages: function() {
-        this.$router.push("/query_packages?" + this.destination);
-      }
+    searchPackages: function() {
+      this.$router.push("/query_packages?" + this.destination);
     }
-  };
+  }
+};
 </script>
 
 <style>
@@ -244,7 +226,7 @@
 
 .fixed-block span:first-child {
   display: block;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-align: center;
   font-weight: 600;
   color: white;
