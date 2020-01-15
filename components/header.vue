@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
         <nuxt-link to="/" class="navbar-brand">
-          <img src="~static/images/logoas.jpg" style="width: 40%" alt />
+          <img src="~static/images/logoas.jpg" class="logo-rsp" alt />
         </nuxt-link>
         <button
           class="navbar-toggler"
@@ -25,16 +25,22 @@
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="/about" class="nav-link" id="about">About</nuxt-link>
+              <nuxt-link to="/about" class="nav-link" id="about"
+                >About</nuxt-link
+              >
             </li>
             <li class="nav-item">
-              <nuxt-link to="/themes" class="nav-link" id="categories">Categories</nuxt-link>
+              <nuxt-link to="/themes" class="nav-link" id="categories"
+                >Categories</nuxt-link
+              >
             </li>
             <li class="nav-item">
               <nuxt-link to="/blog" class="nav-link" id="blog">Blog</nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link to="/contact" id="contact" class="nav-link">Contact</nuxt-link>
+              <nuxt-link to="/contact" id="contact" class="nav-link"
+                >Contact</nuxt-link
+              >
             </li>
           </ul>
         </div>
@@ -44,7 +50,7 @@
 </template>
 
 <script>
-export default {};
+  export default {};
 </script>
 
 <style>
@@ -79,6 +85,28 @@ export default {};
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1.5rem !important;
+  }
+}
+
+.navbar-brand {
+  width: 50%;
+}
+
+@media (max-width: 37.5em) {
+  .logo-rsp {
+    width: 50%;
+  }
+}
+
+@media (min-width: 37.5em) and (max-width: 56.25em) {
+  .logo-rsp {
+    width: 30%;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .logo-rsp {
+    width: 25%;
   }
 }
 </style>
